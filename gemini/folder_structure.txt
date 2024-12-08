@@ -1,0 +1,26 @@
+    app/
+    ├── api/
+    │   ├── v1/
+    │   │   ├── __init__.py
+    │   │   └── endpoints.py # The application Endpoint
+    │   ├── __init__.py
+    ├── core/ # It includes the core configuration
+    │   ├── __init__.py
+    │   └── config.py # The configuration of the app including database url and secrets.
+    ├── db/
+    │   ├── base.py # Defines the SQLAlchemy Base for ORM mapping, essential for model definitions.
+    │   ├── models.py # Contains SQLAlchemy models, such as the User model and others as needed.
+    │   └── migrations/ # This will be done via alembic init app (alembic init db/migrations)
+    │       ├── env.py # Will be autocreated when performing the migration
+    │       ├── README
+    │       ├── script.py.mako # Template used by Alembic for generating new migration files.
+    │       └── versions/  # Holds Alembic migration files for database version control.
+    │           └── db2b1c2f7f75_create_users_table.py
+    ├── services/ # This folder is used for API Encapsulations including the Gemini Service.
+    │   ├── __init__.py
+    │   └── gemini_service.py 
+    ├── main.py # This should include the main app with router to endpoints
+    ├── requirements.txt # The requirements needed
+    alembic.ini # Should include the alembic configuration script_location = app/db/migrations
+    docker-compose.yml # The docker compose configuration file
+    Dockerfile # The backend footprint
